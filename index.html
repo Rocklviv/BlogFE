@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Title</title>
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="css/overrides.css" />
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+</head>
+<body id="content">
+  <div class="spinner" id="spinner">
+    <div class="spinner-body">
+      <p class="img-spinner"></p>
+      <p class="spinner-message">
+        Loading... Please wait!
+      </p>
+    </div>
+  </div>
+  <div class="section" id="header">
+    <div class="widget Header" id="Header1">
+      <div id="logo">
+        <h1>
+          <a href="/#/">LOGO</a>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="featured-data">
+    <div id="carousel">
+      <div class="homepage-carousel slick-initialized slick-slider">
+        <div aria-live="polite" class="slick-list draggable" tabindex="0"></div>
+        <button type="button" class="slick-nav slick-prev" style="display: block;"></button>
+        <button type="button" class="slick-nav slick-next" style="display: block;"></button>
+      </div>
+    </div>
+  </div>
+  <div class="container sp_sidebar" id="mainPage">
+
+  </div>
+  <div class="section" id="footer-instagram"></div>
+  <div class="widget-data"></div>
+  <footer id="footer-copyright">
+
+  </footer>
+
+  <!-- Templates -->
+  <script type="text/x-handlebars-template" id="homePage">
+    <div class="section" id="main">
+      <div class="widget Blog" id="Blog">
+        {{#articles}}
+          <article class="post">
+            <div class="post-header">
+              <h2>
+              <span>
+                <a href="/#/home/article/{{shortUrl}}">{{title}}</a>
+              </span>
+              </h2>
+              <div class="bg-category">
+                <div class="category-name">
+                  <span><a href="/#/home/categories/{{categoryName}}">Theater</a></span>
+                </div>
+              </div>
+            </div>
+            <div id="summary">
+              <div class="post-image">
+                <div class="featured">
+                  <div class="post-gallery slick-initialized slick-slider">{{shortText}}</div>
+                </div>
+              </div>
+              <div class="post-entry">
+                {{shortText}}
+                <p>
+                  <a class="more-link" href="/#/home/article/{{shortUrl}}">Continue Reading</a>
+                </p>
+              </div>
+            </div>
+            <div class="bottom-blog">
+              <ul class="blog-date pull-left ccc">
+                <li>
+                  <i class="fa fa-clock-o"></i>
+                  Monday, Jan. 04, 2016.
+                </li>
+                <li>
+                  <i class="fa fa-comments-o"></i>
+                  <a href="/#/home/article/{{shortUrl}}#comments">5 Comments</a>
+                </li>
+              </ul>
+            </div>
+          </article>
+        {{/articles}}
+      </div>
+    </div>
+    <div class="section" id="sidebar">
+      <div class="widget Text" id="Text"></div>
+    </div>
+  </script>
+  <script type="text/x-handlebars-template" id="footer">
+    <div class="container">
+      <p>{{licence}}</p>
+      <a class="to-top">Back to top
+        <i class="fa fa-angel-double-up"></i>
+      </a>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars-template" id="authPage">
+    <div class="wpcf7">
+      <div class="slicknav_row">
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username">
+      </div>
+      <div class="slicknav_row">
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password">
+      </div>
+      <div class="slicknav_row">
+        <input type="button" id="doAuth" name="doAuth" value="Sign In" class="wpcf7-submit">
+      </div>
+      <div class="error-404 disabled" id="message-block">
+        <p id="message"></p>
+      </div>
+    </div>
+  </script>
+  <!-- Scripts -->
+  <script src="js/helpers/HandleBars_Helpers.js"></script>
+  <script src="js/helpers/Spinner.js"></script>
+  <script src="js/controllers/homeController.js"></script>
+  <script src="js/controllers/authController.js"></script>
+  <script src="js/utils/net/XMLHttpRequest.js"></script>
+  <script src="js/utils/net/RequestsLib.js"></script>
+  <script src="js/utils/dom/dom.js"></script>
+  <script src="js/application.js"></script>
+  <script>var app = ns.Application; app.init(); </script>
+</body>
+</html>
